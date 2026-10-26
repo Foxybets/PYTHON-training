@@ -1,12 +1,13 @@
 import React from 'react';
 import { TabType } from '../types/index.ts';
-import { BookOpen, Cpu, Sparkles, Bug, Code2, Award, Printer, CheckCircle2 } from 'lucide-react';
+import { BookOpen, Cpu, Sparkles, Bug, Code2, Award, Printer, CheckCircle2, Share2 } from 'lucide-react';
 
 interface NavbarProps {
   activeTab: TabType;
   onTabChange: (tab: TabType) => void;
   onOpenExam: () => void;
   onOpenCheatSheet: () => void;
+  onOpenShare: () => void;
   completedTasksCount: number;
   totalTasksCount: number;
 }
@@ -16,6 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onTabChange,
   onOpenExam,
   onOpenCheatSheet,
+  onOpenShare,
   completedTasksCount,
   totalTasksCount
 }) => {
@@ -54,22 +56,33 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Progress & Quick Modals */}
-          <div className="flex items-center gap-3 self-end md:self-auto">
+          <div className="flex items-center gap-2.5 self-end md:self-auto flex-wrap sm:flex-nowrap">
             {/* Student Progress */}
             <div className="hidden sm:flex items-center gap-2.5 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl text-xs">
               <div className="flex flex-col text-right">
-                <span className="text-[10px] text-slate-400">Прогресс практики:</span>
+                <span className="text-[10px] text-slate-400">Прогресс:</span>
                 <span className="font-bold font-mono text-emerald-400">
                   {completedTasksCount} / {totalTasksCount} ({progressPercent}%)
                 </span>
               </div>
-              <div className="w-12 h-2 bg-slate-800 rounded-full overflow-hidden">
+              <div className="w-10 h-2 bg-slate-800 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-emerald-500 rounded-full transition-all duration-300"
                   style={{ width: `${progressPercent}%` }}
                 />
               </div>
             </div>
+
+            {/* Share / Teacher link button */}
+            <button
+              type="button"
+              onClick={onOpenShare}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-emerald-950/60 hover:bg-emerald-900/80 text-emerald-300 border border-emerald-500/30 transition cursor-pointer shadow-sm"
+              title="Открыть QR-код и ссылку для учеников"
+            >
+              <Share2 className="w-3.5 h-3.5" />
+              <span>Раздать ученикам</span>
+            </button>
 
             {/* Cheat Sheet button */}
             <button

@@ -8,14 +8,16 @@ import { PracticeBlock2 } from './components/PracticeBlock2.tsx';
 import { PracticeBlock3 } from './components/PracticeBlock3.tsx';
 import { ExamModeModal } from './components/ExamModeModal.tsx';
 import { CheatSheetModal } from './components/CheatSheetModal.tsx';
+import { ShareModal } from './components/ShareModal.tsx';
 import { BLOCK_1_TASKS, BLOCK_2_TASKS, BLOCK_3_TASKS } from './utils/tasksData.ts';
-import { GraduationCap, Award, BookOpen, Sparkles, CheckCircle2 } from 'lucide-react';
+import { GraduationCap, Award, BookOpen, Sparkles, CheckCircle2, Share2 } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('theory');
   const [tracerCode, setTracerCode] = useState<string>(BLOCK_1_TASKS[0].code);
   const [isExamOpen, setIsExamOpen] = useState<boolean>(false);
   const [isCheatSheetOpen, setIsCheatSheetOpen] = useState<boolean>(false);
+  const [isShareOpen, setIsShareOpen] = useState<boolean>(false);
 
   // Completed tasks persistent storage
   const [completedTaskIds, setCompletedTaskIds] = useState<string[]>(() => {
@@ -56,6 +58,7 @@ export default function App() {
         onTabChange={setActiveTab}
         onOpenExam={() => setIsExamOpen(true)}
         onOpenCheatSheet={() => setIsCheatSheetOpen(true)}
+        onOpenShare={() => setIsShareOpen(true)}
         completedTasksCount={completedTaskIds.length}
         totalTasksCount={totalTasksCount}
       />
@@ -104,6 +107,15 @@ export default function App() {
           <div className="flex items-center gap-4 text-slate-400">
             <button
               type="button"
+              onClick={() => setIsShareOpen(true)}
+              className="hover:text-emerald-400 cursor-pointer transition flex items-center gap-1 text-emerald-400 font-medium"
+            >
+              <Share2 className="w-3.5 h-3.5" />
+              Раздать ученикам
+            </button>
+            <span>•</span>
+            <button
+              type="button"
               onClick={() => setIsCheatSheetOpen(true)}
               className="hover:text-white cursor-pointer transition"
             >
@@ -134,6 +146,11 @@ export default function App() {
       <CheatSheetModal
         isOpen={isCheatSheetOpen}
         onClose={() => setIsCheatSheetOpen(false)}
+      />
+
+      <ShareModal
+        isOpen={isShareOpen}
+        onClose={() => setIsShareOpen(false)}
       />
     </div>
   );
