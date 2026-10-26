@@ -3,7 +3,50 @@
 
 Веб-приложение для подготовки школьников 10 класса к контрольным работам, зачётам и экзаменам по теме **«Ветвления и условные конструкции в языке Python»**.
 
-Работает на 100% в браузере — **без установки Python, компиляторов и регистрации**. Подходит для использования учителем на уроках через проектор, а также для самостоятельного домашнего обучения.
+---
+
+## 🇬🇧 English Overview: What is it & How to use
+
+### 💡 What is this project?
+**Python Conditionals Trainer (`if`, `elif`, `else`)** is an interactive, zero-install educational web application created for high school computer science students (Grade 10) preparing for exams and tests.
+
+It provides a visual, hands-on learning environment with real-time condition evaluation, step-by-step code execution, interactive flowcharts, and automated test validation.
+
+### 🌟 Key Highlights:
+- **Zero Installation Required**: Runs 100% in any modern web browser (Chrome, Safari, Edge, Firefox). Neither students nor teachers need to install Python, IDLE, or code editors.
+- **Visual Step-by-Step Code Tracer**: Interactive debugger highlighting executed lines, inspecting variable memory (`Scope`), and breaking down logical expressions (`True` / `False`).
+- **Interactive Flowcharts**: Dynamic branching diagrams (condition diamond, True/False branches) connected with live code.
+- **3 Hands-on Practice Blocks**:
+  1. *Mental Tracing*: "What will the code output?" with instant feedback.
+  2. *Bug Hunter*: Identify and correct syntax and logic pitfalls (missing colons, indentations, `=` vs `==`).
+  3. *Code Challenges*: Built-in Python editor with automated test-case runner.
+- **Timed Exam Simulator**: 10-question test with a 15-minute countdown and instant official school grade (scale 2–5).
+- **Classroom Ready**: Built-in **projector QR code** for instant mobile scanning and a 1-page printable cheat sheet (`Ctrl+P`).
+
+### 🚀 How to Use:
+- **For Students & Teachers (No setup)**: Simply open the deployed web URL in any browser or scan the in-app QR code with a phone camera. No login or account required.
+- **For Developers (Local development with GitHub)**:
+  ```bash
+  git clone https://github.com/diplomats11/python-if-elif-else-trainer.git
+  cd python-if-elif-else-trainer
+  npm install
+  npm run dev      # Opens local dev server on http://localhost:3000
+  npm test         # Runs automated unit tests
+  npm run build    # Builds production bundle in /dist
+  ```
+
+---
+
+## 🌐 1. Как пользоваться ученикам и учителям (БЕЗ УСТАНОВКИ)
+
+> ### 🟢 **Ученикам и учителям НИЧЕГО УСТАНАВЛИВАТЬ НЕ НУЖНО!**
+> Не нужны: Python, Git, Node.js, терминал, редакторы кода или учётные записи.  
+> Всё приложение работает **прямо в браузере** онлайн на любом смартфоне, планшете или школьном компьютере.
+
+### Как запустить на уроке за 5 секунд:
+1. **По ссылке в браузере**: откройте ссылку в любом браузере (Chrome, Яндекс Браузер, Safari, Edge):  
+   👉 **Ваша опубликованная ссылка из Google AI Studio**
+2. **По QR-коду**: нажмите в приложении кнопку **«Раздать ученикам»** и выведите QR-код на проектор — ученики наведут камеру телефона и сразу попадут в тренажёр.
 
 ---
 
@@ -52,13 +95,15 @@
 
 ---
 
-## 💻 Быстрый старт (Локальный запуск)
+## 💻 2. Только для разработчиков (Запуск исходного кода с GitHub)
 
-### Требования
+> ℹ️ **Внимание**: этот раздел нужен **ТОЛЬКО программистам**, которые хотят скачать исходный код с GitHub на свой компьютер, модифицировать проект или развернуть на собственном сервере. Ученикам и учителям эти команды выполнять **НЕ НУЖНО**.
+
+### Требования к разработчику
 - **Node.js** версии 20 или выше
 - **npm** (или bun / pnpm)
 
-### Установка и запуск
+### Установка и запуск для разработки
 
 1. **Клонируйте репозиторий**:
    ```bash
